@@ -1,0 +1,49 @@
+syntax = "proto3";
+  
+package cc.bluecode.chat.protocol;
+
+// import "models.proto";
+
+option java_multiple_files = true;
+option java_package = "cc.bluecode.chat.protocol.commands";
+
+message CmdWrapper {
+
+	enum ResultCode {
+		SUCCESS = 0;
+    }
+    
+	ResultCode result_code = 1; 
+
+    string cmd_type = 2; 
+    
+    bytes cmd_data = 3; 
+    
+}
+message ReqSignUp{
+    string username = 1;
+    string password = 2;
+    string email = 3;
+}
+message ResSignUp{
+    bool success = 1;
+    string username = 2;
+    string password = 3;
+    string email = 4;
+    string userId = 5;
+}
+message ReqLogin {
+    string username = 1;
+    string password = 2;
+}
+message ResLogin {
+    
+}
+message ReqMessage {
+    string name = 1;
+    string text = 2;
+}
+message ResMessage {
+    string name = 1;
+    string text = 2;
+}
